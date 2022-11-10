@@ -1,11 +1,14 @@
 package manager;
 
+
 import entity.Book;
+import entity.Reader;
 
 import java.io.*;
 
 public class DataManager {
     private final String BOOK_FILE = "MyBooks";
+    private final String READER_FILE = "MyReaders";
 
     public DataManager(){
         File file = new File("files");
@@ -39,6 +42,36 @@ public class DataManager {
         }
         return books;
     }
+
+    public void saveReader(Reader[] readers) {
+        try {
+            FileOutputStream fileOutputStream = new FileOutputStream(READER_FILE);
+            ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
+            objectOutputStream.writeObject(readers);
+            objectOutputStream.flush();
+        } catch (FileNotFoundException e) {
+            System.out.println("Нет файла MyReader");
+        } catch (IOException e) {
+            System.out.println("Ошибка Ввода Вывода");
+        }
+    }
+    public Reader[] loadReaders() {
+        Reader[] readers = new Reader[0];
+        try {
+            FileInputStream fileInputStream = new FileInputStream(READER_FILE);
+            ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
+            readers = (Reader[]) objectInputStream.readObject();
+        } catch (FileNotFoundException e) {
+            System.out.println("Нет файла MyReader");
+        } catch (IOException e) {
+            System.out.println("Ошибка Ввода Вывода");
+        } catch (ClassNotFoundException e) {
+            System.out.println("Не найден класс");
+        }
+        return readers;
+    }
+
+
 
 
 }

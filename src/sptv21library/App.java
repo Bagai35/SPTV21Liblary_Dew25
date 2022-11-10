@@ -27,11 +27,12 @@ public class App {
         scanner = new Scanner(System.in);
         dataManager = new DataManager();
         books = dataManager.loadBooks();
-        readers = new Reader[0];
+        readers = dataManager.loadReaders();
         histories = new History[0];
         bookManager = new BookManager();
         readerManager = new ReaderManager();
         historyManager = new HistoryManager();
+        DataManager dataManager = new DataManager();
     }
     
     public void run(){
@@ -58,12 +59,14 @@ public class App {
                 case 1:
                     System.out.println("1. Добавить книгу");
                     addBook(bookManager.createBookWithAuthors());
-                    DataManager dataManager = new DataManager();
+
                     dataManager.saveBooks(books);
                     break;
                 case 2:
                     System.out.println("2. Добавить читателя");
                     addReader(readerManager.createReader());
+
+                    dataManager.saveReader(readers);
                     break;
                 case 3:
                     System.out.println("3. Выдать книгу");
