@@ -7,8 +7,8 @@ import entity.Reader;
 import java.io.*;
 
 public class DataManager {
-    private final String BOOK_FILE = "MyBooks";
-    private final String READER_FILE = "MyReaders";
+    private final String BOOK_FILE = "files/MyBooks";
+    private final String READER_FILE = "files/MyReaders";
 
     public DataManager(){
         File file = new File("files");
