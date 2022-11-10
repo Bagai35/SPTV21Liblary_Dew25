@@ -5,15 +5,19 @@ import entity.Book;
 import java.io.*;
 
 public class DataManager {
+    private final String BOOK_FILE = "MyBooks";
 
-
-
+    public DataManager(){
+        File file = new File("files");
+        file.mkdirs();
+    }
 
     public void saveBooks(Book[] books) {
         try {
-            FileOutputStream fileOutputStream = new FileOutputStream("MyBooks" );
+            FileOutputStream fileOutputStream = new FileOutputStream(BOOK_FILE );
             ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
             objectOutputStream.writeObject(books);
+            objectOutputStream.flush();
         } catch (FileNotFoundException e) {
             System.out.println("Нет файла MyBooks");
         } catch (IOException e) {
@@ -23,7 +27,7 @@ public class DataManager {
     public Book[] loadBooks() {
         Book[] books = new Book[0];
         try {
-            FileInputStream fileInputStream = new FileInputStream("MyBooks");
+            FileInputStream fileInputStream = new FileInputStream(BOOK_FILE);
             ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
             books = (Book[]) objectInputStream.readObject();
         } catch (FileNotFoundException e) {
@@ -35,4 +39,6 @@ public class DataManager {
         }
         return books;
     }
+
+
 }

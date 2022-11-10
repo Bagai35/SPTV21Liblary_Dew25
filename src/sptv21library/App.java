@@ -25,7 +25,7 @@ public class App {
 
     public App() {
         scanner = new Scanner(System.in);
-        dataManager= new DataManager();
+        dataManager = new DataManager();
         books = dataManager.loadBooks();
         readers = new Reader[0];
         histories = new History[0];
