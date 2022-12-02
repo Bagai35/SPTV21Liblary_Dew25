@@ -17,14 +17,14 @@ public class DataManager {
 
     public void saveBooks(Book[] books) {
         try {
-            FileOutputStream fileOutputStream = new FileOutputStream(BOOK_FILE );
+            FileOutputStream fileOutputStream = new FileOutputStream(BOOK_FILE);
             ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
             objectOutputStream.writeObject(books);
             objectOutputStream.flush();
         } catch (FileNotFoundException e) {
             System.out.println("Нет файла MyBooks");
         } catch (IOException e) {
-            System.out.println("Ошибка Ввода Вывода");
+            System.out.println("Ошибка Ввода/Вывода");
         }
     }
     public Book[] loadBooks() {
@@ -36,7 +36,7 @@ public class DataManager {
         } catch (FileNotFoundException e) {
             System.out.println("Нет файла MyBooks");
         } catch (IOException e) {
-            System.out.println("Ошибка Ввода Вывода");
+            System.out.println("Ошибка Ввода/Вывода");
         } catch (ClassNotFoundException e) {
             System.out.println("Не найден класс");
         }
@@ -52,7 +52,7 @@ public class DataManager {
         } catch (FileNotFoundException e) {
             System.out.println("Нет файла MyReader");
         } catch (IOException e) {
-            System.out.println("Ошибка Ввода Вывода");
+            System.out.println("Ошибка Ввода/Вывода");
         }
     }
     public Reader[] loadReaders() {
@@ -64,7 +64,7 @@ public class DataManager {
         } catch (FileNotFoundException e) {
             System.out.println("Нет файла MyReader");
         } catch (IOException e) {
-            System.out.println("Ошибка Ввода Вывода");
+            System.out.println("Ошибка Ввода/Вывода");
         } catch (ClassNotFoundException e) {
             System.out.println("Не найден класс");
         }
