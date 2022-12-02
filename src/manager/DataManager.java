@@ -5,6 +5,8 @@ import entity.Book;
 import entity.Reader;
 
 import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class DataManager {
     private final String BOOK_FILE = "files/MyBooks";
@@ -15,7 +17,7 @@ public class DataManager {
         file.mkdirs();
     }
 
-    public void saveBooks(Book[] books) {
+    public void saveBooks(List<Book> books) {
         try {
             FileOutputStream fileOutputStream = new FileOutputStream(BOOK_FILE);
             ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
@@ -27,12 +29,12 @@ public class DataManager {
             System.out.println("Ошибка Ввода/Вывода");
         }
     }
-    public Book[] loadBooks() {
-        Book[] books = new Book[0];
+    public List<Book> loadBooks() {
+        List<Book> books = new ArrayList<>();
         try {
             FileInputStream fileInputStream = new FileInputStream(BOOK_FILE);
             ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
-            books = (Book[]) objectInputStream.readObject();
+            books = (List<Book>) objectInputStream.readObject();
         } catch (FileNotFoundException e) {
             System.out.println("Нет файла MyBooks");
         } catch (IOException e) {
@@ -43,7 +45,7 @@ public class DataManager {
         return books;
     }
 
-    public void saveReader(Reader[] readers) {
+    public void saveReader(List<Reader> readers) {
         try {
             FileOutputStream fileOutputStream = new FileOutputStream(READER_FILE);
             ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
@@ -55,7 +57,7 @@ public class DataManager {
             System.out.println("Ошибка Ввода/Вывода");
         }
     }
-    public Reader[] loadReaders() {
+    public List<Reader> loadReaders() {
         Reader[] readers = new Reader[0];
         try {
             FileInputStream fileInputStream = new FileInputStream(READER_FILE);
