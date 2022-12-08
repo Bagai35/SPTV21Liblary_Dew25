@@ -109,12 +109,12 @@ public class App {
 //        this.books = Arrays.copyOf(this.books, this.books+1);
 //        this.books[this.books.length - 1] = book;
 //    }
-    private void addReader(Reader reader) {
-        this.readers = Arrays.copyOf(this.readers, this.readers.length+1);
-        this.readers[this.readers.length - 1] = reader;
-    }
-    private void addHistory(History histories) {
-        this.histories = Arrays.copyOf(this.histories, this.histories.length+1);
-        this.histories[this.histories.length - 1] = histories;
-    }
+//    private void addReader(Reader reader) {
+//        this.readers = Arrays.copyOf(this.readers, this.readers.length+1);
+//        this.readers[this.readers.length - 1] = reader;
+//    }
+//    private void addHistory(History histories) {
+//        this.histories = Arrays.copyOf(this.histories, this.histories.length+1);
+//        this.histories[this.histories.length - 1] = histories;
+//    }
 }
